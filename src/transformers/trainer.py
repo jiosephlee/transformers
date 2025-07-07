@@ -917,7 +917,6 @@ class Trainer:
             return dataset
         self._set_signature_columns_if_needed()
         signature_columns = self._signature_columns
-
         ignored_columns = list(set(dataset.column_names) - set(signature_columns))
         if len(ignored_columns) > 0:
             dset_description = "" if description is None else f"in the {description} set"
