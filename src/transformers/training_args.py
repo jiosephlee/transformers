@@ -1173,6 +1173,14 @@ class TrainingArguments:
             )
         },
     )
+    sequential_sampling: Optional[int] = field(
+        default=False,
+        metadata={
+            "help": (
+                "Override the RandomSampler used in Trainer with SequentialSampling."
+            )
+        },
+    )
     past_index: int = field(
         default=-1,
         metadata={"help": "If >=0, uses the corresponding part of the output as the past state for next step."},

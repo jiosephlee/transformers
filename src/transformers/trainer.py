@@ -968,7 +968,10 @@ class Trainer:
             return None
 
         # Build the sampler.
-        if self.args.group_by_length:
+        if self.args.sequential_sampling:
+            return SequentialSampler(train_dataset)
+    
+        elif self.args.group_by_length:
             if is_datasets_available() and isinstance(train_dataset, datasets.Dataset):
                 lengths = (
                     train_dataset[self.args.length_column_name]
